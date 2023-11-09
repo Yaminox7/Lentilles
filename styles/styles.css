@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: royalblue;
+    position: relative;
+    cursor: default;
+    user-select: none;
+}
+
+summary {
+    cursor: pointer;
+}
+
+#canvas {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+}
+
+#start {
+    font-size: 24px;
+    background-color: #c5c5c5;
+    border: 1.25mm outset darkgrey;
+    padding: 4px;
+    border-radius: 8px;
+    transition: all 0.5s;
+    box-shadow: 4px 4px 8px 0 black;
+}
+
+#start:hover {
+    background-color: #9c9c9c;
+    border-color: grey;
+    cursor: pointer;
+    box-shadow: 4px 4px 10px 1px black;
+    transform: translate(1px, 2px);
+}
+
+#params {
+    /* margin-left: 7.5px; */
+    position: relative;
+    background: #eee;
+    border: 1px solid black;
+    width: max-content;
+}
+
+#params h1 {
+    padding-left: 5px;
+    text-decoration: underline;
+    padding-bottom: 17.5px;
+}
+
+#params ul {
+    padding-left: 20px;
+}
+
+#params ul li {
+    padding-left: -15px;
+    font-size: 20px;
+}
+
+#dstfp {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+[data-title]:after {
+    content: attr(data-title);
+    color: #111;
+    font-size: 150%;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 99999;
+}
+
+[data-title] {
+    position: relative;
+}
+
+#objs ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+details summary {
+    position: relative;
+}
+
+summary::before {
+    content: '';
+    border-width: .4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #000;
+    position: absolute;
+    top: .4rem;
+    left: -1rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+}
+
+/* THE MAGIC 🧙‍♀️ */
+details[open] > summary:before {
+    transform: rotate(90deg);
+}
+
+details summary::-webkit-details-marker,
+details summary::marker {
+    content: "";
+    display: none;
+}
+
+.state.pt {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: alias;
+}
+
+.state.lm {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: alias;
+}
+
+.state.pd {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: alias;
+}
+
+.state.àn {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: alias;
+}
+
+.state.vd {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: alias;
+}
+
+.hideButton {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    /* border: 0; */
+    padding: 15px;
+    font-size: 30px;
+    position: relative;
+    margin-right: 5px;
+}
+
+ion-icon.hidden {
+    color: transparent;
+}
+
+ion-icon {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 1s;
+}
+
+.hideButton:hover ion-icon {
+    color: transparent;
+}
+
+.hideButton:hover ion-icon.hidden {
+    color: black;
+}
+
+.hideButton:hover {
+    cursor: pointer;
+}
+
+#close, #open {
+    background: darkgrey;
+    cursor: pointer;
+    border: 2mm ridge grey;
+    padding: 2px 5px 2px 5px;
+    font-size: 15px;
+    transition: all .1s;
+}
+
+#close {
+    position: absolute;
+    top: -1px;
+    right: 0px;
+    display: block;
+}
+
+#open {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+#close:hover, #open:hover {
+    background: rgb(120, 120, 120);
+    border-color: rgb(110, 110, 110);
+    transform: translate(0, 1px);
+}
+
+#close:active, #open:active {
+    background: rgb(120, 120, 120);
+    border-color: rgb(110, 110, 110);
+    transform: translate(0, 2px);
+}
+
+#ctfi {
+    background-color: #eee;
+    color: black;
+    padding: 5px;
+    width: 200px;
+    border: none;
+    font-size: 16px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+}
+
+.ctfi::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+#ctfi:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#ctfi option {
+    padding: 30px;
+}
+
+#offsety1, #offsety2 {
+    cursor: e-resize;
+}
+
+#hpni {
+    cursor: pointer;
+}

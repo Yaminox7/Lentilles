@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Lentilles</title>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <link rel="stylesheet" type="text/css" href="styles/matrix.css">
+        <link rel="stylesheet" type="text/css" href="styles/fraction.css">
+        <link rel="icon" type="icon/svg" href="images/logo.svg">
+    </head>
+    <body>
+        <div id="screen">
+            <canvas id="canvas" width="1000" height="500"></canvas>
+            <button id="start">Démarrer</button>
+        </div>
+        <div id="params">
+            <h1>Paramètres:</h1>
+            <button id="close">Fermer</button>
+            <ul>
+                <li>
+                    <div id="dstfp">
+                        <label for="dstf">Distance focale: </label>
+                        <input type="range" name="dstf" id="dstf" style="cursor: e-resize;">
+                    </div>
+                </li>
+                <li style="list-style: none;margin-left: 0px;">
+                    <details id="objs">
+                        <summary>Objets</summary>
+                    </details>
+                </li>
+                <li style="list-style: none;margin-left: 0px;">
+                    <details id="cols">
+                        <summary>Couleurs et Police</summary>
+                        <ul style="list-style: disc;">
+                            <li>Couleur de l'arrière-plan: <input type="color" id="bgi" /></li>
+                            <li>Couleur de l'arrière-plan de l'aire de dessin: <input type="color" id="cbgi" /></li>
+                            <li>Couleur des axes de l'aire de dessin: <input type="color" id="cai" /></li>
+                            <li>Couleur des points (O, F et F') de l'aire de dessin: <input type="color" id="cfi" /></li>
+                            <li>Couleur des noms (O, F et F') de l'aire de dessin: <input type="color" id="cti" /></li>
+                            <li>
+                                <label for="#ctfi">Police des noms des points:</label>
+                                <select id="ctfi"></select>
+                            </li>
+                            <li>
+                                <label for="#offsety1">Décalade vertical des points du haut:</label>
+                                <input id="offsety1" type="range" min="0" max="100" step="1" />
+                                <label for="#offsety1" id="offsety1v"></label>
+                            </li>
+                            <li>
+                                <label for="#offsety2">Décalage vertical des points du bas:</label>
+                                <input id="offsety2" type="range" min="0" max="100" step="1" />
+                                <label for="#offsety2" id="offsety2v"></label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="hpni" />
+                                <label for="#hpni">Masquer le nom des points</label>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+        <button id="open">Ouvrir les paramètres</button>
+        <!-- DRAWING -->
+        <script src="scripts/Drawing/variables.js"></script>
+        <script src="scripts/Drawing/classes.js"></script>
+        <script src="scripts/Drawing/functions.js"></script>
+        <script src="scripts/Drawing/shapes.js"></script>
+        <script src="scripts/Drawing/main.js"></script>
+        
+        <!-- UTILITIES -->
+        <script src="scripts/Utilities/buttons.js"></script>
+        <script src="scripts/Utilities/colorsAndFont.js"></script>
+        <script src="scripts/Utilities/drapNdrop.js"></script>
+        <script src="scripts/Utilities/objects.js"></script>
+
+
+        <!-- IONICONS -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script>console.log('Règles:\nao > 2f --> petite\nao = 2f --> même\n2f > ao > f --> grande\nao = f --> à l\'infini\nao < f --> virtuelle');</script>
+    </body>
+</html>
